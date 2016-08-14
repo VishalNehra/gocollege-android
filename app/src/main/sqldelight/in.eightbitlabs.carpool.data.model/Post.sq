@@ -1,0 +1,13 @@
+CREATE TABLE post (
+  _id TEXT NOT NULL PRIMARY KEY,
+  license TEXT NOT NULL,
+  type TEXT NOT NULL,
+  seats INTEGER AS Integer NOT NULL,
+  rate INTEGER AS Integer,
+  profile TEXT As in.eightbitlabs.carpool.data.model.Profile NOT NULL,
+  FOREIGN KEY (profile) REFERENCES profile(_id)
+);
+
+select_all:
+SELECT *
+FROM post;
