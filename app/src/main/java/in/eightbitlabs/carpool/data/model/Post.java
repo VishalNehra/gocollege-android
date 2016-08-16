@@ -32,21 +32,6 @@ public abstract class Post implements PostModel, Parcelable {
 
     public static final RowMapper<Post> MAPPER = FACTORY.select_allMapper();
 
-    public static Builder builder() {
-        return new AutoValue_Post.Builder();
-    }
-
-    @AutoValue.Builder
-    public abstract static class Builder {
-        public abstract Builder _id(String value);
-        public abstract Builder license(String value);
-        public abstract Builder type(String value);
-        public abstract Builder seats(int value);
-        public abstract Builder rate(Integer value);
-        public abstract Builder profile(Profile value);
-        public abstract Post build();
-    }
-
     public static TypeAdapter<Post> typeAdapter(Gson gson) {
         return new AutoValue_Post.GsonTypeAdapter(gson);
     }

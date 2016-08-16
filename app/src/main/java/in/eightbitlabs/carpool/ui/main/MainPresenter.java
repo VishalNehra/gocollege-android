@@ -50,16 +50,16 @@ public class MainPresenter extends BasePresenter<MainMvpView> {
 
                     @Override
                     public void onError(Throwable e) {
-                        Timber.e(e, "There was an error loading the ribots.");
+                        Timber.e(e, "There was an error loading the posts.");
                         getMvpView().showError();
                     }
 
                     @Override
-                    public void onNext(List<Post> ribots) {
-                        if (ribots.isEmpty()) {
+                    public void onNext(List<Post> posts) {
+                        if (posts.isEmpty()) {
                             getMvpView().showPostsEmpty();
                         } else {
-                            getMvpView().showPosts(ribots);
+                            getMvpView().showPosts(posts);
                         }
                     }
                 });

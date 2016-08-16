@@ -16,15 +16,9 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import in.eightbitlabs.carpool.R;
-import in.eightbitlabs.carpool.data.remote.CarpoolService;
 import in.eightbitlabs.carpool.ui.base.BaseActivity;
 import in.eightbitlabs.carpool.ui.main.MainActivity;
 import in.eightbitlabs.carpool.util.DialogFactory;
-import okhttp3.Response;
-import rx.Observer;
-import rx.SingleSubscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 import timber.log.Timber;
 
 /**
@@ -56,6 +50,7 @@ public class LoginActivity extends BaseActivity implements LoginMvpView {
         mLoginButton.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
+                showLoginProgress();
                 mLoginPresenter.login();
             }
 
@@ -94,5 +89,9 @@ public class LoginActivity extends BaseActivity implements LoginMvpView {
     public void showMainActivity() {
         startActivity(new Intent(LoginActivity.this, MainActivity.class));
         finish();
+    }
+
+    public void showLoginProgress() {
+        DialogFactory.createProgressDialog(this, R.string.logging_in).show();
     }
 }

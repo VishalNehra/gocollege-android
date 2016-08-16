@@ -9,7 +9,6 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import in.eightbitlabs.carpool.data.remote.CarpoolService;
-import in.eightbitlabs.carpool.data.remote.RxErrorHandlingCallAdapterFactory;
 import in.eightbitlabs.carpool.data.remote.interceptor.AuthInterceptor;
 import in.eightbitlabs.carpool.data.remote.interceptor.HeaderInterceptor;
 import in.eightbitlabs.carpool.data.remote.interceptor.LoggingInterceptor;
@@ -45,7 +44,7 @@ public class NetworkModule {
 
     @Provides
     @Singleton
-    CarpoolService provideRibotsService(OkHttpClient client, Gson gson) {
+    CarpoolService provideCarpoolService(OkHttpClient client, Gson gson) {
         return new Retrofit.Builder()
                 .baseUrl(CarpoolService.ENDPOINT)
                 .client(client)

@@ -1,9 +1,12 @@
 CREATE TABLE post (
-  _id TEXT NOT NULL PRIMARY KEY,
+  timestamp INTEGER NOT NULL PRIMARY KEY,
   license TEXT NOT NULL,
   type TEXT NOT NULL,
+  model TEXT NOT NULL,
+  pickup TEXT NOT NULL,
   seats INTEGER AS Integer NOT NULL,
   rate INTEGER AS Integer,
+  contact INTEGER AS Integer NOT NULL,
   profile TEXT As in.eightbitlabs.carpool.data.model.Profile NOT NULL,
   FOREIGN KEY (profile) REFERENCES profile(_id)
 );

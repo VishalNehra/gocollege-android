@@ -7,7 +7,6 @@ import javax.inject.Inject;
 import in.eightbitlabs.carpool.data.remote.CarpoolService;
 import in.eightbitlabs.carpool.injection.ConfigPersistent;
 import in.eightbitlabs.carpool.ui.base.BasePresenter;
-import okhttp3.Response;
 import okhttp3.ResponseBody;
 import rx.SingleSubscriber;
 import rx.android.schedulers.AndroidSchedulers;
