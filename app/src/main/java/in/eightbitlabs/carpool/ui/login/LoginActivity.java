@@ -1,5 +1,6 @@
 package in.eightbitlabs.carpool.ui.login;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -35,6 +36,7 @@ public class LoginActivity extends BaseActivity implements LoginMvpView {
     LoginButton mLoginButton;
 
     private CallbackManager mCallbackManager;
+    private ProgressDialog mProgress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,11 +89,21 @@ public class LoginActivity extends BaseActivity implements LoginMvpView {
 
     @Override
     public void showMainActivity() {
+        dismissLoginProgress();
         startActivity(new Intent(LoginActivity.this, MainActivity.class));
         finish();
     }
 
+    @Override
     public void showLoginProgress() {
-        DialogFactory.createProgressDialog(this, R.string.logging_in).show();
+        dismissLoginProgress();
+        mProgress = DialogFactory.createProgressDialog(this, R.string.logging_in);
+        mProgress.show();
+    }
+
+    @Override
+    public void dismissLoginProgress() {
+        if(mProgress!=null)
+            mProgress.dismiss();
     }
 }

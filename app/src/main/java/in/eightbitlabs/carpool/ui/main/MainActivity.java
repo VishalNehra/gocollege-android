@@ -11,7 +11,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.facebook.AccessToken;
 import com.facebook.login.LoginManager;
 
 import java.util.Collections;
@@ -46,10 +45,6 @@ public class MainActivity extends BaseActivity implements MainMvpView {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        if(AccessToken.getCurrentAccessToken() == null) {
-            showLogin();
-        }
-
         setSupportActionBar(mToolbar);
         mRecyclerView.setAdapter(mPostsAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -82,11 +77,6 @@ public class MainActivity extends BaseActivity implements MainMvpView {
         mMainPresenter.detachView();
     }
 
-    public void showLogin() {
-        startActivity(new Intent(this, LoginActivity.class));
-        finish();
-    }
-
     /***** MVP View methods implementation *****/
 
     @Override
@@ -108,4 +98,9 @@ public class MainActivity extends BaseActivity implements MainMvpView {
         Toast.makeText(this, R.string.empty_ribots, Toast.LENGTH_LONG).show();
     }
 
+    @Override
+    public void showLogin() {
+        startActivity(new Intent(this, LoginActivity.class));
+        finish();
+    }
 }

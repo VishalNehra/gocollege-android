@@ -12,4 +12,8 @@ public interface LoginMvpView extends MvpView {
     public void showLoginError();
 
     public void showMainActivity();
+
+    public void showLoginProgress();
+
+    public void dismissLoginProgress();
 }
