@@ -10,11 +10,12 @@
     <string name="dialog_action_cancel">Cancel</string>
     <string name="dialog_error_title">Sorry</string>
 
-    <string name="empty_ribots">There aren\'t any posts</string>
+    <string name="empty_posts">There aren\'t any posts</string>
     <string name="error_loading_ribots">There was a problem loading the posts</string>
 
     <string name="action_logout">Logout</string>
     <string name="error_logging_in">Unable to login. Please try again.</string>
     <string name="logging_in">Loggin in...</string>
     <string name="posted_by">Posted by:</string>
+    <string name="retry">Retry</string>
 </resources>

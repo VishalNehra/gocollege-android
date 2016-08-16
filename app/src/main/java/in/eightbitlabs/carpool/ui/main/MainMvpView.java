@@ -13,6 +13,8 @@ public interface MainMvpView extends MvpView {
 
     void showError();
 
+    void showError(String msg);
+
     void showLogin();
 
 }

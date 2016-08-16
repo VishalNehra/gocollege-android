@@ -23,6 +23,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
+        app:elevation="5dp"
+        app:useCompatPadding="true"
         app:fabSize="normal"
         android:layout_margin="@dimen/fab_margin"
         android:src="@android:drawable/ic_input_add" />

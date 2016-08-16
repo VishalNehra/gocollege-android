@@ -78,7 +78,7 @@ public class LoginActivity extends BaseActivity implements LoginMvpView {
 
     @Override
     public void showError(String msg) {
-        Snackbar.make(findViewById(android.R.id.content),msg,Snackbar.LENGTH_LONG);
+        Snackbar.make(mToolbar,msg,Snackbar.LENGTH_LONG).show();
     }
 
     @Override
