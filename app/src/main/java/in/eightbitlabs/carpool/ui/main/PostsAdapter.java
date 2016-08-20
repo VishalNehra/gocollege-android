@@ -58,14 +58,14 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.PostViewHold
         holder.typeTextView.setText(post.type());
         holder.modelTextView.setText(post.model());
         holder.licenseTextView.setText(post.license());
-        holder.phoneTextView.setText(post.contact());
+        holder.phoneTextView.setText(""+post.contact());
         holder.pickupTextView.setText(post.pickup());
 //        holder.hexColorView.setBackgroundColor(Color.parseColor(post.profile().hexColor()));
         holder.nameTextView.setText(post.profile().name());
         holder.branchTextView.setText(post.profile().branch());
-        if(post.rate() != null) {
-            holder.rateTextView.setText(post.rate());
-        }
+//        if(post.rate() != null) {
+//            holder.rateTextView.setText(post.rate());
+//        }
     }
 
     @Override

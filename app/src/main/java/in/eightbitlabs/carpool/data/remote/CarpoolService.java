@@ -15,7 +15,7 @@ import rx.Single;
 public interface CarpoolService {
 
     String ENDPOINT = "http://www.8bitlabs.in/api/v1/";
-//    String ENDPOINT = "http://192.168.122.1:3000/api/v1/";
+//    String ENDPOINT = "http://192.168.1.161:3000/api/v1/";
 
     @GET("auth/facebook/token")
     Single<ResponseBody> verifyUser();
@@ -27,5 +27,5 @@ public interface CarpoolService {
     Observable<List<Post>> getPosts(@Query("page") int page);
 
     @POST("post")
-    Observable<Response> post(@Body Post post);
+    Observable<ResponseBody> post(@Body Post post);
 }

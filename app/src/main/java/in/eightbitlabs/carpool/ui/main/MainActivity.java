@@ -23,6 +23,7 @@ import butterknife.OnClick;
 import in.eightbitlabs.carpool.R;
 import in.eightbitlabs.carpool.data.model.Post;
 import in.eightbitlabs.carpool.ui.base.BaseActivity;
+import in.eightbitlabs.carpool.ui.create.CreatePostActivity;
 import in.eightbitlabs.carpool.ui.login.LoginActivity;
 import in.eightbitlabs.carpool.util.DialogFactory;
 
@@ -76,8 +77,8 @@ public class MainActivity extends BaseActivity implements MainMvpView {
     }
 
     @OnClick(R.id.fab)
-    void createPost() {
-
+    void showCreatePost() {
+        startActivity(new Intent(this, CreatePostActivity.class));
     }
 
     /***** MVP View methods implementation *****/

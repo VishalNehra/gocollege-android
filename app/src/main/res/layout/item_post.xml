@@ -34,7 +34,7 @@
             android:layout_alignParentEnd="true"
             android:gravity="end"
             android:textSize="@dimen/text_title"
-            tools:text=" Volkswagen Polo" />
+            tools:text="Volkswagen Polo" />
 
         <TextView
             android:id="@+id/text_seats"

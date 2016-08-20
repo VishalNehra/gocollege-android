@@ -3,6 +3,7 @@ package in.eightbitlabs.carpool.injection.component;
 import dagger.Subcomponent;
 import in.eightbitlabs.carpool.injection.PerActivity;
 import in.eightbitlabs.carpool.injection.module.ActivityModule;
+import in.eightbitlabs.carpool.ui.create.CreatePostActivity;
 import in.eightbitlabs.carpool.ui.login.LoginActivity;
 import in.eightbitlabs.carpool.ui.main.MainActivity;
 
@@ -16,4 +17,6 @@ public interface ActivityComponent {
     void inject(MainActivity mainActivity);
 
     void inject(LoginActivity loginActivity);
+
+    void inject(CreatePostActivity createPostActivity);
 }

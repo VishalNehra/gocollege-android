@@ -15,7 +15,8 @@
 
     <string name="action_logout">Logout</string>
     <string name="error_logging_in">Unable to login. Please try again.</string>
-    <string name="logging_in">Loggin in...</string>
+    <string name="logging_in">Logging in…</string>
     <string name="posted_by">Posted by:</string>
     <string name="retry">Retry</string>
+    <string name="post_pickup">Pickup Location:</string>
 </resources>

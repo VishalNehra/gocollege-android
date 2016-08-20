@@ -24,7 +24,7 @@ public abstract class Post implements PostModel, Parcelable {
 
         @Override
         public void marshal(ContentValues values, String key, Profile value) {
-            values.put(key, value._id());
+            values.put(key, value.id());
         }
     };
 
@@ -32,7 +32,35 @@ public abstract class Post implements PostModel, Parcelable {
 
     public static final RowMapper<Post> MAPPER = FACTORY.select_allMapper();
 
+    public static Builder builder() {
+        return new AutoValue_Post.Builder();
+    }
+
+    @AutoValue.Builder
+    public abstract static class Builder {
+        public abstract Builder timestamp(long value);
+        public abstract Builder license(String value);
+        public abstract Builder type(String value);
+        public abstract Builder model(String value);
+        public abstract Builder pickup(String value);
+        public abstract Builder contact(long value);
+        public abstract Builder seats(int value);
+        public abstract Builder rate(Integer value);
+        public abstract Builder profile(Profile value);
+        public abstract Post build();
+    }
+
     public static TypeAdapter<Post> typeAdapter(Gson gson) {
         return new AutoValue_Post.GsonTypeAdapter(gson);
+    }
+
+    public static Profile toProfile(com.facebook.Profile profile) {
+        return new AutoValue_Profile(profile.getId(),
+                profile.getName(),
+                profile.getLinkUri().toString(),
+                "male",
+                9876543210L,
+                null
+                );
     }
 }

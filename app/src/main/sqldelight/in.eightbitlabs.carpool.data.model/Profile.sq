@@ -1,13 +1,13 @@
 CREATE TABLE profile (
-  _id TEXT NOT NULL PRIMARY KEY,
+  id TEXT NOT NULL PRIMARY KEY,
   name TEXT NOT NULL,
   picture TEXT NOT NULL,
-  gender TEXT NOT NULL,
-  phone INTEGER AS Integer NOT NULL,
+  gender TEXT,
+  phone INTEGER,
   branch TEXT
 );
 
 select_by_id:
 SELECT *
 FROM profile
-WHERE _id = ?;
+WHERE id = ?;

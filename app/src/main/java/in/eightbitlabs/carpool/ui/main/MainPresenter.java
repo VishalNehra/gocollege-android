@@ -40,7 +40,7 @@ public class MainPresenter extends BasePresenter<MainMvpView> {
     public void loadPosts() {
         checkViewAttached();
         RxUtil.unsubscribe(mSubscription);
-        mSubscription = mCarpoolService.getPosts(1)
+        mSubscription = mCarpoolService.getPosts(0)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Subscriber<List<Post>>() {

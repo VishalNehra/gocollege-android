@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <include layout="@layout/include_toolbar"/>
+
+    <TextView
+        android:id="@+id/type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:textSize="@dimen/text_title"
+        android:text="Type of Vehicle:"/>
+
+    <Spinner
+        android:id="@+id/spinner_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/type"
+        android:layout_toRightOf="@+id/type"
+        android:entries="@array/type"/>
+
+    <TextView
+        android:id="@+id/model"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/type"
+        android:layout_marginTop="15dp"
+        android:textSize="@dimen/text_title"
+        android:text="Vehicle Model:"/>
+
+    <EditText
+        android:id="@+id/edit_model"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_below="@+id/spinner_type"
+        android:layout_alignBaseline="@+id/model"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:inputType="text"
+        android:hint="Eg: Volkswagen Polo"
+        android:gravity="center"
+        android:layout_toEndOf="@+id/model"
+        android:layout_toRightOf="@+id/model"/>
+
+
+    <TextView
+        android:id="@+id/license"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/model"
+        android:layout_marginTop="15dp"
+        android:textSize="@dimen/text_title"
+        android:text="License No:"/>
+
+    <EditText
+        android:id="@+id/edit_license"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_below="@+id/edit_model"
+        android:layout_alignBaseline="@+id/license"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:inputType="text"
+        android:gravity="center"
+        android:layout_toEndOf="@+id/license"
+        android:layout_toRightOf="@+id/license"/>
+
+    <TextView
+        android:id="@+id/seats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/license"
+        android:layout_marginTop="15dp"
+        android:textSize="@dimen/text_title"
+        android:text="Seats Available:"/>
+
+    <Spinner
+        android:id="@+id/spinner_seats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_below="@+id/edit_license"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/seats"
+        android:layout_toRightOf="@+id/seats"
+        android:entries="@array/seats"/>
+
+    <TextView
+        android:id="@+id/pickup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/seats"
+        android:layout_marginTop="15dp"
+        android:textSize="@dimen/text_title"
+        android:text="@string/post_pickup"/>
+
+    <EditText
+        android:id="@+id/edit_pickup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_below="@+id/spinner_seats"
+        android:layout_alignBaseline="@+id/pickup"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:inputType="text"
+        android:gravity="center"
+        android:layout_toEndOf="@+id/pickup"
+        android:layout_toRightOf="@+id/pickup"/>
+
+    <TextView
+        android:id="@+id/rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pickup"
+        android:layout_marginTop="15dp"
+        android:textSize="@dimen/text_title"
+        android:text="Rate per month:"/>
+
+    <EditText
+        android:id="@+id/edit_rate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_below="@+id/edit_pickup"
+        android:layout_alignBaseline="@+id/rate"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:hint="Optional"
+        android:inputType="number"
+        android:gravity="center"
+        android:layout_toEndOf="@+id/rate"
+        android:layout_toRightOf="@+id/rate"/>
+
+    <TextView
+        android:id="@+id/contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rate"
+        android:layout_marginTop="15dp"
+        android:textSize="@dimen/text_title"
+        android:text="Contact Number:"/>
+
+    <EditText
+        android:id="@+id/edit_contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_below="@+id/edit_rate"
+        android:layout_alignBaseline="@+id/contact"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:inputType="number"
+        android:gravity="center"
+        android:layout_toEndOf="@+id/contact"
+        android:layout_toRightOf="@+id/contact"/>
+
+    <Button
+        android:id="@+id/button_post"
+        android:text="Post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_contact"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"/>
+
+</RelativeLayout>

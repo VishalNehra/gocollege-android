@@ -6,9 +6,9 @@ CREATE TABLE post (
   pickup TEXT NOT NULL,
   seats INTEGER AS Integer NOT NULL,
   rate INTEGER AS Integer,
-  contact INTEGER AS Integer NOT NULL,
+  contact INTEGER NOT NULL,
   profile TEXT As in.eightbitlabs.carpool.data.model.Profile NOT NULL,
-  FOREIGN KEY (profile) REFERENCES profile(_id)
+  FOREIGN KEY (profile) REFERENCES profile(id)
 );
 
 select_all:
