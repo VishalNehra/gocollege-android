@@ -46,7 +46,7 @@
         android:layout_alignBaseline="@+id/model"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:inputType="text"
+        android:inputType="textCapWords"
         android:hint="Eg: Volkswagen Polo"
         android:gravity="center"
         android:layout_toEndOf="@+id/model"
@@ -72,7 +72,7 @@
         android:layout_alignBaseline="@+id/license"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:inputType="text"
+        android:inputType="textCapCharacters"
         android:gravity="center"
         android:layout_toEndOf="@+id/license"
         android:layout_toRightOf="@+id/license"/>
@@ -119,7 +119,7 @@
         android:layout_alignBaseline="@+id/pickup"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:inputType="text"
+        android:inputType="textCapWords"
         android:gravity="center"
         android:layout_toEndOf="@+id/pickup"
         android:layout_toRightOf="@+id/pickup"/>

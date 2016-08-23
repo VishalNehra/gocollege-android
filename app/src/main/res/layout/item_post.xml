@@ -87,7 +87,7 @@
             tools:text="Call: 987654321" />
 
         <TextView
-            android:id="@+id/text_posted_by"
+            android:id="@+id/stub_posted_by"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/text_phone"
@@ -99,7 +99,7 @@
             android:id="@+id/view_profile_photo"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_below="@id/text_posted_by"
+            android:layout_below="@id/stub_posted_by"
             android:layout_marginTop="5dp"
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp"
@@ -110,7 +110,7 @@
             android:id="@+id/text_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/text_posted_by"
+            android:layout_below="@id/stub_posted_by"
             android:layout_marginTop="5dp"
             android:layout_toRightOf="@id/view_profile_photo"
             android:layout_toEndOf="@id/view_profile_photo"
