@@ -7,7 +7,7 @@ CREATE TABLE post (
   seats INTEGER AS Integer NOT NULL,
   rate INTEGER AS Integer,
   contact INTEGER NOT NULL,
-  profile TEXT As in.eightbitlabs.carpool.data.model.Profile NOT NULL,
+  profile TEXT As in.eightbitlabs.carpool.data.model.Profile,
   FOREIGN KEY (profile) REFERENCES profile(id)
 );
 

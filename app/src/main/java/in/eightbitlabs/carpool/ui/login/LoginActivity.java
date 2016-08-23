@@ -89,7 +89,6 @@ public class LoginActivity extends BaseActivity implements LoginMvpView {
 
     @Override
     public void showMainActivity() {
-        dismissLoginProgress();
         startActivity(new Intent(LoginActivity.this, MainActivity.class));
         finish();
     }

@@ -53,14 +53,4 @@ public abstract class Post implements PostModel, Parcelable {
     public static TypeAdapter<Post> typeAdapter(Gson gson) {
         return new AutoValue_Post.GsonTypeAdapter(gson);
     }
-
-    public static Profile toProfile(com.facebook.Profile profile) {
-        return new AutoValue_Profile(profile.getId(),
-                profile.getName(),
-                profile.getLinkUri().toString(),
-                "male",
-                9876543210L,
-                null
-                );
-    }
 }

@@ -72,8 +72,7 @@ public class CreatePostActivity extends BaseActivity {
                 .license(license.getText().toString())
                 .seats(Integer.parseInt(seats.getSelectedItem().toString()))
                 .pickup(pickup.getText().toString())
-                .contact(Long.parseLong(contact.getText().toString()))
-                .profile(Post.toProfile(com.facebook.Profile.getCurrentProfile()));
+                .contact(Long.parseLong(contact.getText().toString()));
 
         if(rate.getText().length() != 0 )
             post.rate(Integer.parseInt(rate.getText().toString()));

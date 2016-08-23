@@ -9,6 +9,7 @@ import in.eightbitlabs.carpool.injection.ConfigPersistent;
 import in.eightbitlabs.carpool.ui.base.BasePresenter;
 import okhttp3.ResponseBody;
 import rx.SingleSubscriber;
+import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import timber.log.Timber;
@@ -40,10 +41,10 @@ public class LoginPresenter extends BasePresenter<LoginMvpView> {
         mCarpoolService.verifyUser()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new SingleSubscriber<ResponseBody>() {
+                .subscribe(new Subscriber<ResponseBody>() {
                     @Override
-                    public void onSuccess(ResponseBody value) {
-                        getMvpView().showMainActivity();
+                    public void onCompleted() {
+                        getMvpView().dismissLoginProgress();
                     }
 
                     @Override
@@ -51,6 +52,11 @@ public class LoginPresenter extends BasePresenter<LoginMvpView> {
                         Timber.e(error,"Login error");
                         getMvpView().showLoginError();
                         LoginManager.getInstance().logOut();
+                    }
+
+                    @Override
+                    public void onNext(ResponseBody responseBody) {
+                        getMvpView().showMainActivity();
                     }
                 });
     }

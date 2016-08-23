@@ -18,7 +18,7 @@ public interface CarpoolService {
 //    String ENDPOINT = "http://192.168.1.161:3000/api/v1/";
 
     @GET("auth/facebook/token")
-    Single<ResponseBody> verifyUser();
+    Observable<ResponseBody> verifyUser();
 
     @GET("me/posts")
     Observable<List<Post>> getUserPosts();
