@@ -58,14 +58,17 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.PostViewHold
         holder.typeTextView.setText(post.type());
         holder.modelTextView.setText(post.model());
         holder.licenseTextView.setText(post.license());
+        holder.seatsTextView.setText(String.valueOf(post.seats()));
         holder.phoneTextView.setText(String.valueOf(post.contact()));
         holder.pickupTextView.setText(post.pickup());
 //        holder.photoView.setBackgroundColor(Color.parseColor(post.profile().hexColor()));
         holder.nameTextView.setText(post.profile().name());
         holder.branchTextView.setText(post.profile().branch());
-//        if(post.rate() != null) {
-//            holder.rateTextView.setText(post.rate());
-//        }
+        if(post.rate() != null) {
+            holder.rateTextView.setText(post.rate().toString());
+        } else {
+            holder.rateTextView.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -77,6 +80,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.PostViewHold
 
         @BindView(R.id.text_type) TextView typeTextView;
         @BindView(R.id.text_model) TextView modelTextView;
+        @BindView(R.id.text_seats) TextView seatsTextView;
         @BindView(R.id.text_license) TextView licenseTextView;
         @BindView(R.id.text_rate) TextView rateTextView;
         @BindView(R.id.text_phone) TextView phoneTextView;
