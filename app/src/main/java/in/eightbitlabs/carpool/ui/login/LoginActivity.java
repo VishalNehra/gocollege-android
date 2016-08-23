@@ -96,7 +96,7 @@ public class LoginActivity extends BaseActivity implements LoginMvpView {
     @Override
     public void showLoginProgress() {
         dismissLoginProgress();
-        mProgress = DialogFactory.createProgressDialog(this, R.string.logging_in);
+        mProgress = DialogFactory.createProgressDialog(this, R.string.dialog_logging_in);
         mProgress.show();
     }
 

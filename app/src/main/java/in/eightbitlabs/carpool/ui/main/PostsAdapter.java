@@ -1,5 +1,6 @@
 package in.eightbitlabs.carpool.ui.main;
 
+import android.content.Context;
 import android.support.v7.util.SortedList;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.util.SortedListAdapterCallback;
@@ -16,13 +17,16 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import in.eightbitlabs.carpool.R;
 import in.eightbitlabs.carpool.data.model.Post;
+import in.eightbitlabs.carpool.injection.ApplicationContext;
 
 public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.PostViewHolder> {
 
     private SortedList<Post> mPosts;
+    private Context mContext;
 
     @Inject
-    public PostsAdapter() {
+    public PostsAdapter(@ApplicationContext Context context) {
+        mContext = context;
         mPosts = new SortedList<>(Post.class, new SortedListAdapterCallback<Post>(this) {
             @Override
             public int compare(Post o1, Post o2) {
@@ -58,17 +62,20 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.PostViewHold
         holder.typeTextView.setText(post.type());
         holder.modelTextView.setText(post.model());
         holder.licenseTextView.setText(post.license());
-        holder.seatsTextView.setText(String.valueOf(post.seats()));
-        holder.phoneTextView.setText(String.valueOf(post.contact()));
-        holder.pickupTextView.setText(post.pickup());
-//        holder.photoView.setBackgroundColor(Color.parseColor(post.profile().hexColor()));
+        holder.seatsTextView.setText(mContext.getResources()
+                .getQuantityString(R.plurals.post_item_seats, post.seats(), post.seats()));
+        holder.phoneTextView.setText(mContext.getString(R.string.post_item_contact, post.contact()));
+        holder.pickupTextView.setText(mContext.getString(R.string.post_item_pickup, post.pickup()));
         holder.nameTextView.setText(post.profile().name());
         holder.branchTextView.setText(post.profile().branch());
         if(post.rate() != null) {
-            holder.rateTextView.setText(post.rate().toString());
+            holder.rateTextView.setText(mContext.getResources()
+                    .getQuantityString(R.plurals.post_item_rate, post.rate(), post.rate()));
         } else {
             holder.rateTextView.setVisibility(View.GONE);
         }
+
+//        holder.photoView.setBackgroundColor(Color.parseColor(post.profile().hexColor()));
     }
 
     @Override

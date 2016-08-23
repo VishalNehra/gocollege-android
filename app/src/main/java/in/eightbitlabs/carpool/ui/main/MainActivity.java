@@ -96,7 +96,7 @@ public class MainActivity extends BaseActivity implements MainMvpView {
 
     @Override
     public void showError() {
-        DialogFactory.createGenericErrorDialog(this, getString(R.string.error_loading_ribots))
+        DialogFactory.createGenericErrorDialog(this, getString(R.string.error_loading_posts))
                 .show();
     }
 
@@ -106,7 +106,7 @@ public class MainActivity extends BaseActivity implements MainMvpView {
         mPostsAdapter.notifyDataSetChanged();
         Snackbar.make(mToolbar,
                 R.string.empty_posts,Snackbar.LENGTH_LONG)
-                .setAction(R.string.retry, v -> mMainPresenter.loadPosts())
+                .setAction(R.string.snackbar_action_retry, v -> mMainPresenter.loadPosts())
                 .show();
     }
 
