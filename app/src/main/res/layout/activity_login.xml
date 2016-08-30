@@ -5,13 +5,24 @@
 
     <include layout="@layout/include_toolbar"/>
 
+    <ImageView
+        android:id="@+id/brand_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dp"
+        android:src="@drawable/splash_icon"
+        android:contentDescription="Brand Image"/>
+
     <com.facebook.login.widget.LoginButton
         android:id="@+id/fb_login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_below="@+id/brand_image"
         android:padding="5dp"
-        android:layout_marginTop="320dp"
+        android:layout_marginTop="200dp"
         android:layout_marginBottom="30dp" />
 
 </RelativeLayout>
