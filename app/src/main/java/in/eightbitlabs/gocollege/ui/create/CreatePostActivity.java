@@ -63,6 +63,9 @@ public class CreatePostActivity extends BaseActivity {
 
     @OnClick(R.id.button_post)
     void post() {
+        if(!isValid())
+            return;
+
         Post.Builder post = Post.builder()
                 .timestamp(new Date().getTime())
                 .type(type.getSelectedItem().toString())
@@ -98,5 +101,35 @@ public class CreatePostActivity extends BaseActivity {
                         finish();
                     }
                 });
+    }
+
+    boolean isValid() {
+        if(type.getSelectedItemPosition() == 0) {
+            return false;
+        }
+        if(model.getText().length() == 0) {
+            model.setError(getString(R.string.error_required_field));
+            return false;
+        }
+        if(license.getText().length() == 0) {
+            license.setError(getString(R.string.error_required_field));
+            return false;
+        }
+        if(seats.getSelectedItemPosition() == 0) {
+            return false;
+        }
+        if(pickup.getText().length() == 0) {
+            pickup.setError(getString(R.string.error_required_field));
+            return false;
+        }
+        if(rate.getText().length() == 0) {
+            rate.setError(getString(R.string.error_required_field));
+            return false;
+        }
+        if(contact.getText().length() == 0) {
+            contact.setError(getString(R.string.error_required_field));
+            return false;
+        }
+        return true;
     }
 }
