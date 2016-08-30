@@ -95,7 +95,7 @@
             android:textSize="@dimen/text_large_body"
             android:text="@string/post_item_posted_by" />
 
-        <View
+        <ImageView
             android:id="@+id/view_profile_photo"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -103,7 +103,8 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp"
-            android:background="@android:color/holo_blue_dark" />
+            android:background="@android:color/holo_blue_dark"
+            android:contentDescription="Profile Picture"/>
 
 
         <TextView

@@ -7,7 +7,10 @@ import android.support.v7.widget.util.SortedListAdapterCallback;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -75,7 +78,9 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.PostViewHold
             holder.rateTextView.setVisibility(View.GONE);
         }
 
-//        holder.photoView.setBackgroundColor(Color.parseColor(post.profile().hexColor()));
+        Glide.with(mContext)
+                .load(post.profile().picture())
+                .into(holder.photoView);
     }
 
     @Override
@@ -92,7 +97,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.PostViewHold
         @BindView(R.id.text_rate) TextView rateTextView;
         @BindView(R.id.text_phone) TextView phoneTextView;
         @BindView(R.id.text_pickup) TextView pickupTextView;
-        @BindView(R.id.view_profile_photo) View photoView;
+        @BindView(R.id.view_profile_photo) ImageView photoView;
         @BindView(R.id.text_name) TextView nameTextView;
         @BindView(R.id.text_branch) TextView branchTextView;
 
