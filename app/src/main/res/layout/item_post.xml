@@ -64,6 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/text_seats"
+            android:autoLink="map"
             android:layout_marginTop="5dp"
             android:textSize="@dimen/text_body"
             tools:text="Pickup: Vasant Vihar" />
@@ -83,6 +84,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/text_rate"
             android:layout_marginTop="5dp"
+            android:autoLink="phone"
             android:textSize="@dimen/text_body"
             tools:text="Call: 987654321" />
 

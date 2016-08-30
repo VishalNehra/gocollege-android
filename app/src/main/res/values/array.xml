@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="type">
+        <item>Select a vehicle type</item>
         <item>Car</item>
         <item>Bike</item>
         <item>Scooty</item>
     </string-array>
 
     <string-array name="seats">
+        <item>No of available seats</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
