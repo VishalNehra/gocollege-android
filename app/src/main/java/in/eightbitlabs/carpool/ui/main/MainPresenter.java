@@ -37,10 +37,10 @@ public class MainPresenter extends BasePresenter<MainMvpView> {
         if (mSubscription != null) mSubscription.unsubscribe();
     }
 
-    public void loadPosts() {
+    public void loadPosts(int page) {
         checkViewAttached();
         RxUtil.unsubscribe(mSubscription);
-        mSubscription = mCarpoolService.getPosts(0)
+        mSubscription = mCarpoolService.getPosts(page)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Subscriber<List<Post>>() {
@@ -56,7 +56,7 @@ public class MainPresenter extends BasePresenter<MainMvpView> {
 
                     @Override
                     public void onNext(List<Post> posts) {
-                        if (posts.isEmpty()) {
+                        if (posts.isEmpty() && page == 0) {
                             getMvpView().showPostsEmpty();
                         } else {
                             getMvpView().showPosts(posts);

@@ -26,6 +26,7 @@ import in.eightbitlabs.carpool.ui.base.BaseActivity;
 import in.eightbitlabs.carpool.ui.create.CreatePostActivity;
 import in.eightbitlabs.carpool.ui.login.LoginActivity;
 import in.eightbitlabs.carpool.util.DialogFactory;
+import in.eightbitlabs.carpool.util.EndlessRecyclerViewScrollListener;
 
 public class MainActivity extends BaseActivity implements MainMvpView {
 
@@ -37,6 +38,8 @@ public class MainActivity extends BaseActivity implements MainMvpView {
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
 
+    private int page = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,10 +48,19 @@ public class MainActivity extends BaseActivity implements MainMvpView {
         ButterKnife.bind(this);
 
         setSupportActionBar(mToolbar);
-        mRecyclerView.setAdapter(mPostsAdapter);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mMainPresenter.attachView(this);
-        mMainPresenter.loadPosts();
+
+        mRecyclerView.setAdapter(mPostsAdapter);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(linearLayoutManager);
+        mRecyclerView.addOnScrollListener(new EndlessRecyclerViewScrollListener(linearLayoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount) {
+                MainActivity.this.page = page;
+                mMainPresenter.loadPosts(page);
+            }
+        });
+        mMainPresenter.loadPosts(page);
     }
 
     @Override
@@ -85,8 +97,7 @@ public class MainActivity extends BaseActivity implements MainMvpView {
 
     @Override
     public void showPosts(List<Post> posts) {
-        mPostsAdapter.setPosts(posts);
-        mPostsAdapter.notifyDataSetChanged();
+        mPostsAdapter.addPosts(posts);
     }
 
     @Override
@@ -102,11 +113,11 @@ public class MainActivity extends BaseActivity implements MainMvpView {
 
     @Override
     public void showPostsEmpty() {
-        mPostsAdapter.setPosts(Collections.emptyList());
+        mPostsAdapter.addPosts(Collections.emptyList());
         mPostsAdapter.notifyDataSetChanged();
         Snackbar.make(mToolbar,
                 R.string.empty_posts,Snackbar.LENGTH_LONG)
-                .setAction(R.string.snackbar_action_retry, v -> mMainPresenter.loadPosts())
+                .setAction(R.string.snackbar_action_retry, v -> mMainPresenter.loadPosts(page))
                 .show();
     }
 

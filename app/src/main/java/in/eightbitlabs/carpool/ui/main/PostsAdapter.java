@@ -25,7 +25,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.PostViewHold
     private Context mContext;
 
     @Inject
-    public PostsAdapter(@ApplicationContext Context context) {
+    PostsAdapter(@ApplicationContext Context context) {
         mContext = context;
         mPosts = new SortedList<>(Post.class, new SortedListAdapterCallback<Post>(this) {
             @Override
@@ -45,7 +45,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.PostViewHold
         });
     }
 
-    public void setPosts(List<Post> posts) {
+    void addPosts(List<Post> posts) {
         mPosts.addAll(posts);
     }
 
