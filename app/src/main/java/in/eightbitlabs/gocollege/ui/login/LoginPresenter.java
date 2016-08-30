@@ -49,6 +49,7 @@ public class LoginPresenter extends BasePresenter<LoginMvpView> {
                     @Override
                     public void onError(Throwable error) {
                         Timber.e(error,"Login error");
+                        getMvpView().dismissLoginProgress();
                         getMvpView().showLoginError();
                         LoginManager.getInstance().logOut();
                     }

@@ -122,12 +122,8 @@ public class CreatePostActivity extends BaseActivity {
             pickup.setError(getString(R.string.error_required_field));
             return false;
         }
-        if(rate.getText().length() == 0) {
-            rate.setError(getString(R.string.error_required_field));
-            return false;
-        }
-        if(contact.getText().length() == 0) {
-            contact.setError(getString(R.string.error_required_field));
+        if(contact.getText().length() != 10) {
+            contact.setError(getString(R.string.error_invalid_contact));
             return false;
         }
         return true;

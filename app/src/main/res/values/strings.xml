@@ -16,6 +16,7 @@
     <string name="error_loading_posts">There was a problem loading the posts</string>
     <string name="error_logging_in">Unable to login. Please try again.</string>
     <string name="error_required_field">Required</string>
+    <string name="error_invalid_contact">Invalid contact number</string>
 
     <string name="snackbar_action_retry">Retry</string>
 
