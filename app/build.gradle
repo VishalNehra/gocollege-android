@@ -6,7 +6,7 @@ apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'com.bugsnag.android.gradle'
 
 bugsnag {
-    apiKey ''  // TODO: add api key
+    apiKey 'ae8bfd2d89cb087b9c80367ca78f5c30'
     autoProguardConfig false
 }
 

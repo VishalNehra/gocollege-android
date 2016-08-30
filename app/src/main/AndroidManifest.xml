@@ -13,8 +13,8 @@
         android:theme="@style/AppTheme" >
 
         <!--Bugsnag API Key -->
-        <!--TODO: add api key-->
-        <meta-data android:name="com.bugsnag.android.API_KEY" android:value=""/>
+        <meta-data android:name="com.bugsnag.android.API_KEY"
+                   android:value="ae8bfd2d89cb087b9c80367ca78f5c30"/>
 
         <meta-data android:name="com.facebook.sdk.ApplicationId"
                    android:value="@string/facebook_app_id"/>
