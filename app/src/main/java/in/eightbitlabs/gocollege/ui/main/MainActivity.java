@@ -65,14 +65,17 @@ public class MainActivity extends BaseActivity implements MainMvpView {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = new MenuInflater(this);
+        MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_main, menu);
-        return super.onCreateOptionsMenu(menu);
+        return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.action_refresh:
+                mMainPresenter.loadPosts(0);
+                break;
             case R.id.action_logout:
                 LoginManager.getInstance().logOut();
                 showLogin();

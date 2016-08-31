@@ -87,7 +87,7 @@ play {
     jsonFile = file('../play-service-account-key.json')
     uploadImages = true
     // By default publishes to Alpha channel
-    track = 'alpha'
+    track = 'beta'
 }
 
 dependencies {
