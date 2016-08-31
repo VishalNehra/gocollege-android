@@ -1,5 +1,6 @@
 package in.eightbitlabs.gocollege.ui.main;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -28,7 +29,11 @@ import in.eightbitlabs.gocollege.ui.login.LoginActivity;
 import in.eightbitlabs.gocollege.util.DialogFactory;
 import in.eightbitlabs.gocollege.util.EndlessRecyclerViewScrollListener;
 
+import static junit.runner.Version.id;
+
 public class MainActivity extends BaseActivity implements MainMvpView {
+
+    public  static final int REQUEST_CREATE_ACTIVITY = 1;
 
     @Inject MainPresenter mMainPresenter;
     @Inject PostsAdapter mPostsAdapter;
@@ -91,9 +96,16 @@ public class MainActivity extends BaseActivity implements MainMvpView {
         mMainPresenter.detachView();
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == REQUEST_CREATE_ACTIVITY && resultCode == Activity.RESULT_OK) {
+            mMainPresenter.loadPosts(0);
+        }
+    }
+
     @OnClick(R.id.fab)
     void showCreatePost() {
-        startActivity(new Intent(this, CreatePostActivity.class));
+        startActivityForResult(new Intent(this, CreatePostActivity.class), REQUEST_CREATE_ACTIVITY);
     }
 
     /***** MVP View methods implementation *****/

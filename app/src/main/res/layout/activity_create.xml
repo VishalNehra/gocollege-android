@@ -5,95 +5,99 @@
 
     <include layout="@layout/include_toolbar"/>
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/vertical_margin"
         android:layout_below="@+id/toolbar">
 
-        <Spinner
-            android:id="@+id/spinner_type"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/form_spacing_margin"
-            android:padding="5dp"
-            android:gravity="center"
-            android:textAlignment="center"
-            android:layout_below="@+id/toolbar"
-            android:entries="@array/type"/>
+            android:layout_margin="@dimen/vertical_margin">
 
-        <EditText
-            android:id="@+id/edit_model"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/spinner_type"
-            android:layout_margin="@dimen/form_spacing_margin"
-            android:inputType="textCapWords"
-            android:hint="Vehicle Model (Eg: Volkswagen Polo)"
-            android:gravity="center"/>
+            <Spinner
+                android:id="@+id/spinner_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/form_spacing_margin"
+                android:padding="5dp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:layout_below="@+id/toolbar"
+                android:entries="@array/type"/>
+
+            <EditText
+                android:id="@+id/edit_model"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/spinner_type"
+                android:layout_margin="@dimen/form_spacing_margin"
+                android:inputType="textCapWords"
+                android:hint="Vehicle Model (Eg: Volkswagen Polo)"
+                android:gravity="center"/>
 
 
-        <EditText
-            android:id="@+id/edit_license"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/form_spacing_margin"
-            android:layout_below="@+id/edit_model"
-            android:inputType="textCapCharacters"
-            android:gravity="center"
-            android:hint="License No"/>
+            <EditText
+                android:id="@+id/edit_license"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/form_spacing_margin"
+                android:layout_below="@+id/edit_model"
+                android:inputType="textCapCharacters"
+                android:gravity="center"
+                android:hint="License No"/>
 
-        <Spinner
-            android:id="@+id/spinner_seats"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/form_spacing_margin"
-            android:padding="5dp"
-            android:gravity="center"
-            android:layout_below="@+id/edit_license"
-            android:entries="@array/seats"/>
+            <Spinner
+                android:id="@+id/spinner_seats"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/form_spacing_margin"
+                android:padding="5dp"
+                android:gravity="center"
+                android:layout_below="@+id/edit_license"
+                android:entries="@array/seats"/>
 
-        <EditText
-            android:id="@+id/edit_pickup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/spinner_seats"
-            android:layout_margin="@dimen/form_spacing_margin"
-            android:inputType="textCapWords"
-            android:gravity="center"
-            android:hint="@string/add_post_pickup"/>
+            <EditText
+                android:id="@+id/edit_pickup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/spinner_seats"
+                android:layout_margin="@dimen/form_spacing_margin"
+                android:inputType="textCapWords"
+                android:gravity="center"
+                android:hint="@string/add_post_pickup"/>
 
-        <EditText
-            android:id="@+id/edit_rate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/edit_pickup"
-            android:layout_margin="@dimen/form_spacing_margin"
-            android:hint="Rate per month (Optional)"
-            android:inputType="number"
-            android:gravity="center"/>
+            <EditText
+                android:id="@+id/edit_rate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edit_pickup"
+                android:layout_margin="@dimen/form_spacing_margin"
+                android:hint="Rate per month (Optional)"
+                android:inputType="number"
+                android:gravity="center"/>
 
-        <EditText
-            android:id="@+id/edit_contact"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/edit_rate"
-            android:layout_margin="@dimen/form_spacing_margin"
-            android:maxLength="10"
-            android:inputType="number"
-            android:gravity="center"
-            android:hint="Contact Number"/>
+            <EditText
+                android:id="@+id/edit_contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edit_rate"
+                android:layout_margin="@dimen/form_spacing_margin"
+                android:maxLength="10"
+                android:inputType="number"
+                android:gravity="center"
+                android:hint="Contact Number"/>
 
-        <Button
-            android:id="@+id/button_post"
-            android:text="Post"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/form_spacing_margin"
-            android:layout_below="@+id/edit_contact"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="14dp"/>
+            <Button
+                android:id="@+id/button_post"
+                android:text="Post"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/form_spacing_margin"
+                android:layout_below="@+id/edit_contact"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="14dp"/>
 
-    </RelativeLayout>
-
+        </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>

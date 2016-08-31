@@ -1,5 +1,8 @@
 package in.eightbitlabs.gocollege.ui.create;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
@@ -98,6 +101,7 @@ public class CreatePostActivity extends BaseActivity {
                         Toast.makeText(CreatePostActivity.this,
                                 "Post added successfully",Toast.LENGTH_LONG)
                                 .show();
+                        setResult(Activity.RESULT_OK);
                         finish();
                     }
                 });
