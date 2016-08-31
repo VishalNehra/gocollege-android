@@ -1,0 +1,28 @@
+language: android
+jdk: oraclejdk8
+android:
+  components:
+  - tools
+  - platform-tools
+  - build-tools-24.0.1
+  - android-24
+  - extra-android-m2repository
+  - extra-google-google_play_services
+  - extra-google-m2repository
+before_cache:
+- rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+cache:
+  directories:
+  - "$HOME/.gradle/caches/"
+  - "$HOME/.gradle/wrapper/"
+script: "./gradlew build connectedCheck --no-daemon --stacktrace"
+sudo: false
+deploy:
+  provider: releases
+  api_key:
+    secure: Y97N7E5r0ez+l3ctHVLx9v3yus+eu5P/BvpMTobUMxm6yjVj9bl4UfTFfLpjs+mTLcfmmfpFwvduGv/fxQgbwicp/Nbzlu8/YbPSJrVFbLljkUG/7m9v9vFdYYzFn/34C0TQbE5AglI3XSl0hlZZ2uvgLpf1rjFTMDPWNXu0F7h7GNFOoF0HRwt9b+l6bFIGTkTULsEHIZ/Jo4/br9T8nfMoZ6HSSq8sNVWYJAiVDdTiKlfS4nN2KaiIrkDP3zFfp4RFdUQa6c8JUvPXube7FQNNT4FdAG4cxzrAJXEesOV3WPqcac9XpPxGGUmnUOgQ89Qh+mT7662iS+xBhER0JR+482XWSec7pRT8RRyDJacPVqagN3KGt4yNV7N8BoJ0UT4b+Hl22B89mM4DCR0VQ8Zw2owB7d5LDrs8PwC9ucq4J5dRQ4Iwv496tlOS8ScCxUufB+w2M/EV18zo+yt6x2RjpzHLe3SG65jHvSuj/Zi2RkaL8hKM+JwFWdQGP1T2q2Ijm/YEiWc2He9DgMo1uq0FZOtbmY0jDmLYIlIp4iRJIMNNPJmXHDRNfJSV8pnDUyX4moCa11crDNLvtD7yfOn8gSs3UumFb5EN6UYepPwNt2bPOoPAceA1Vr10j7f57LwXmm1n5RTSMJBXqyihqUj8QVCcsgVIz0JtwcEz4Yw=
+  file: "./app/build/outputs/apk/app-release.apk"
+  on:
+    repo: Shalzz/gocollege-android
+    tags: true
+after_deploy: "./gradlew publishRelease --no-daemon --stacktrace"
