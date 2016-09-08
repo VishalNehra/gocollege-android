@@ -26,3 +26,6 @@ deploy:
     repo: Shalzz/gocollege-android
     tags: true
 after_deploy: "./gradlew publishRelease --no-daemon --stacktrace"
+before_install:
+- openssl aes-256-cbc -K $encrypted_95a0813dd905_key -iv $encrypted_95a0813dd905_iv
+  -in play-service-account-key.json.enc -out play-service-account-key.json -d
