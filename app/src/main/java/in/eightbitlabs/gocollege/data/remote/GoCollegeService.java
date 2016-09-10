@@ -12,7 +12,7 @@ import rx.Observable;
 
 public interface GoCollegeService {
 
-    String ENDPOINT = "http://www.8bitlabs.in/api/v1/";
+    String ENDPOINT = "http://api.gocollege.8bitlabs.in/api/v1/";
 //    String ENDPOINT = "http://192.168.1.161:3000/api/v1/";
 
     @GET("auth/facebook/token")
