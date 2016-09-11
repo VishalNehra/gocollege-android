@@ -18,15 +18,14 @@ cache:
   - "$HOME/.gradle/wrapper/"
   - "$HOME/.gradle/daemon/"
   - "$HOME/.gradle/native/"
-# Emulator Management: Create, Start and Wait
 before_script:
-  - echo no | android create avd --force -n test --target $ANDROID_TARGET --abi $ANDROID_ABI
-  - emulator -avd test -no-audio -no-window &
+#- echo no | android create avd --force -n test --target $ANDROID_TARGET --abi $ANDROID_ABI
+#- emulator -avd test -no-audio -no-window &
 script:
-  - ./gradlew build test --no-daemon --stacktrace
-  - android-wait-for-emulator
-  - adb shell input keyevent 82 &
-  - ./gradlew connectedAndroidTest --no-daemon --stacktrace
+- "./gradlew build test --no-daemon --stacktrace"
+#- android-wait-for-emulator
+#- adb shell input keyevent 82 &
+#- "./gradlew connectedAndroidTest --no-daemon --stacktrace"
 sudo: false
 deploy:
   provider: releases
@@ -41,6 +40,8 @@ before_install:
 - openssl aes-256-cbc -K $encrypted_95a0813dd905_key -iv $encrypted_95a0813dd905_iv
   -in play-service-account-key.json.enc -out play-service-account-key.json -d
 env:
-  secure: q0isuCInUvB7WLZOmf1pgaCH5o4UJLLtnRuvaGZZW3Ik3BQUzJQxDWW6HFtgTyVl4r3EdF40YLOxkGNYWVy708AXtE6hfyJCkbvYv9LvuZNuLZmX709U725WWOS1n0ZXUUDNWeGurUGrKaoRvl9R1XF66ZXuSk89ZJhBj0j0w8eIW6jhLCQItVy0eLv9WaItf/4qFlcx6D6lAX30+wVuU6GTjT2uoSXkWTxmVPd6FT3O4M+nwAsyyKPHtHSRL5VntfIhgnXqirEg2A3+50oRSc5UzrotypO0gJmFwa6wfZOQUWYrehiHDGOnP7fug/r0RquKMn/yEHNciP9aZlCmbobHPRuorrRGMNWQ+WW8SfbtDsjFJC7VlxHTCRmTQK+zo/gvfZBW+67P7ErOd7Sq8VfoePI9KLB7NhCBfUP/T3mnKw3aN9ZDD/SVDi+fWJz+j/hFgYqnb/75q4bxBP6m18xhh5v1dSH+4G1Xui/LHtUrGiOAzTnPeClcQccxv4eGWIa3pqXAa9BINjN3Z5n7daALU5L+MrJddcVgm5vi944HeyySZSCr1l0T6PGCgAPxwagId3JDClZQnt6G5ysjq90Enq+i29WKJQyy2v8E3Hv2XqdQDgX4FLUt/PP1q97ScRwIXiZchgy+D1MxvXqL0YhyyGuPrDj6rmiOvqcHRjc=
   matrix:
-    - ANDROID_TARGET=android-24 ANDROID_ABI=armeabi-v7a
+  - ANDROID_TARGET=android-24 ANDROID_ABI=armeabi-v7a
+  global:
+  - secure: q0isuCInUvB7WLZOmf1pgaCH5o4UJLLtnRuvaGZZW3Ik3BQUzJQxDWW6HFtgTyVl4r3EdF40YLOxkGNYWVy708AXtE6hfyJCkbvYv9LvuZNuLZmX709U725WWOS1n0ZXUUDNWeGurUGrKaoRvl9R1XF66ZXuSk89ZJhBj0j0w8eIW6jhLCQItVy0eLv9WaItf/4qFlcx6D6lAX30+wVuU6GTjT2uoSXkWTxmVPd6FT3O4M+nwAsyyKPHtHSRL5VntfIhgnXqirEg2A3+50oRSc5UzrotypO0gJmFwa6wfZOQUWYrehiHDGOnP7fug/r0RquKMn/yEHNciP9aZlCmbobHPRuorrRGMNWQ+WW8SfbtDsjFJC7VlxHTCRmTQK+zo/gvfZBW+67P7ErOd7Sq8VfoePI9KLB7NhCBfUP/T3mnKw3aN9ZDD/SVDi+fWJz+j/hFgYqnb/75q4bxBP6m18xhh5v1dSH+4G1Xui/LHtUrGiOAzTnPeClcQccxv4eGWIa3pqXAa9BINjN3Z5n7daALU5L+MrJddcVgm5vi944HeyySZSCr1l0T6PGCgAPxwagId3JDClZQnt6G5ysjq90Enq+i29WKJQyy2v8E3Hv2XqdQDgX4FLUt/PP1q97ScRwIXiZchgy+D1MxvXqL0YhyyGuPrDj6rmiOvqcHRjc=
+  - secure: tL5yuTRrTJcoTqHBa/93AK+BZWSXGRbka/Kb+ZGNVJdcQUpyXa3cDlZMkwxNtyZY2KgyyfthAXY1a3OFgnMq15fJMw0WkIdp1H2gFL+iwlri29rDuAlLEsNVWya3bFXGLAtxcMeF21+JqsHm1jecwFucUecluh+b+ab9fBPNpA9RMLD+MXItrm8C2HtLNlnBuTnNTGddSfpj5Kslk4ofHyUrrlQt4OO9SPZ3xiQBiaZA0a/yWvqdY+ve0A50kmcnRq42Ebi4wDGlPI5gzRgSb31GldO7RH4m/dn4Nk6pG0q3XWirVeX0u7p8YzcGbXN34csMQsvfd2ppvFVxnKLb30iXG9o9yK7CbgjAoGJVpPNw6i7sXibKM1rqCHMrb6gEZmPLpsG+aL/hm83CrXmO6JBKJaNR5kO7oHX23LuXCcj0SUbrT2P94mS2mVzgCCKfDbqff5dbMZ04rO8p++koS+iQnogW2KcL2J9fre9BMo0s1JxtcegSjl7gDdjyd8eIocR5HT8LF3Ejtm65WD1Cnzxj7bTtZAWyf4WEnAwuS8pexekBlDF/WdoULnwi/SZHNFsG0InlWYYUmCVsJRkU1NoFd9e+xm8yON8fBJdIt6xhDDGD9lq0eugINMn6njvXAoKlVdlTY9cgXJ8O+pJRzB8qFJj8nRQDa5qOGx2/BQk=
