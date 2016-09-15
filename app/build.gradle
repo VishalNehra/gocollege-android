@@ -67,7 +67,7 @@ android {
             minifyEnabled true
             useProguard true
 //            FileCollection proGuardFileCollection = FileCollection(file('./proguard').listFiles())
-            proguardFiles(file('./proguard'))
+            proguardFiles(file('./proguard').listFiles())
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }

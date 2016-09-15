@@ -41,7 +41,6 @@ public class FeedFragment extends Fragment implements FeedMvpView{
     @Inject FeedPresenter mFeedPresenter;
     @Inject PostsAdapter mPostsAdapter;
     @ActivityContext @Inject Context mContext;
-    @Inject Activity mActivity;
 
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
