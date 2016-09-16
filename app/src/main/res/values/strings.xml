@@ -34,4 +34,5 @@
     </plurals>
 
     <string name="add_post_pickup">Pickup Location:</string>
+    <string name="profile">Profile</string>
 </resources>

@@ -29,8 +29,6 @@ import in.eightbitlabs.gocollege.ui.login.LoginActivity;
 import in.eightbitlabs.gocollege.util.DialogFactory;
 import in.eightbitlabs.gocollege.util.EndlessRecyclerViewScrollListener;
 
-import static junit.runner.Version.id;
-
 public class MainActivity extends BaseActivity implements MainMvpView {
 
     public  static final int REQUEST_CREATE_ACTIVITY = 1;
@@ -84,6 +82,9 @@ public class MainActivity extends BaseActivity implements MainMvpView {
             case R.id.action_logout:
                 LoginManager.getInstance().logOut();
                 showLogin();
+                break;
+            case R.id.action_profile:
+                startActivity(new Intent(this, ProfileActivity.class));
                 break;
         }
         return super.onOptionsItemSelected(item);
