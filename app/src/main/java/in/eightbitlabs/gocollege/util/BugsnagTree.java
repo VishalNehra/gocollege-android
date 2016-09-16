@@ -1,11 +1,14 @@
 package in.eightbitlabs.gocollege.util;
 
 import android.util.Log;
+
 import com.bugsnag.android.Bugsnag;
 import com.bugsnag.android.Error;
+
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Locale;
+
 import timber.log.Timber;
 
 /**

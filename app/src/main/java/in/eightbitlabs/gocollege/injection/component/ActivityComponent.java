@@ -4,6 +4,7 @@ import dagger.Subcomponent;
 import in.eightbitlabs.gocollege.injection.PerActivity;
 import in.eightbitlabs.gocollege.injection.module.ActivityModule;
 import in.eightbitlabs.gocollege.ui.create.CreatePostActivity;
+import in.eightbitlabs.gocollege.ui.feed.FeedFragment;
 import in.eightbitlabs.gocollege.ui.login.LoginActivity;
 import in.eightbitlabs.gocollege.ui.main.MainActivity;
 
@@ -19,4 +20,6 @@ public interface ActivityComponent {
     void inject(LoginActivity loginActivity);
 
     void inject(CreatePostActivity createPostActivity);
+
+    void inject(FeedFragment feedFragment);
 }

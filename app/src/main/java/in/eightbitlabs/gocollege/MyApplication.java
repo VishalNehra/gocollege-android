@@ -3,7 +3,6 @@ package in.eightbitlabs.gocollege;
 import android.app.Application;
 import android.content.Context;
 
-import com.bugsnag.android.BeforeNotify;
 import com.bugsnag.android.Bugsnag;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;

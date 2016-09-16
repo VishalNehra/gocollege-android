@@ -21,7 +21,7 @@ public interface ApplicationComponent {
 
     @ApplicationContext Context context();
     Application application();
-    GoCollegeService ribotsService();
+    GoCollegeService goCollegeService();
     PreferencesHelper preferencesHelper();
     DatabaseHelper databaseHelper();
     DataManager dataManager();
